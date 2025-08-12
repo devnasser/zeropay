@@ -122,3 +122,13 @@ ehthumbs.db
 !/system/backups/.gitkeep
 /system/benchmarks/*.log
 /system/benchmarks/*.txt
+
+# Plans directory
+/plans/archived/*
+!/plans/archived/.gitkeep
+
+# Me (AI) directory
+/me/logs/*
+!/me/logs/.gitkeep
+/me/performance/*.log
+/me/memories/cache/*
