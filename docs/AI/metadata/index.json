@@ -1,7 +1,11 @@
 {
   "version": "1.0.0",
   "last_updated": "2025-08-12",
-  "created_by": "Zero Team - Legend Mode ⚔️",
+  "created_by": "Nasser Alanazi (ناصر العنزي)",
+  "author_email": "dev.na@outlook.com",
+  "author_phone": "+966508480715",
+  "copyright": "© 2024 Nasser Alanazi - All Rights Reserved",
+  "development_mode": "Legend Mode ⚔️",
   "projects_analyzed": {
     "zero": {
       "description": "منصة Zero المحسنة - Laravel 11 + Livewire 3",

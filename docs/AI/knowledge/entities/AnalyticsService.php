@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * Analytics Service - Business Intelligence & Reporting
+ * 
+ * @author Nasser Alanazi (ناصر العنزي)
+ * @email dev.na@outlook.com
+ * @phone +966508480715
+ * @copyright © 2024 Nasser Alanazi - All Rights Reserved
+ * @license MIT
+ */
+
 namespace App\Services;
 
 use App\Models\Product;
