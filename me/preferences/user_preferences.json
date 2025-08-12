@@ -1,0 +1,111 @@
+{
+  "owner": {
+    "name": "Nasser Alanazi",
+    "name_ar": "ناصر العنزي",
+    "email": "dev.na@outlook.com",
+    "phone": "+966508480715",
+    "role": "Project Owner & Developer"
+  },
+  "communication": {
+    "primary_language": "ar",
+    "secondary_languages": ["en"],
+    "style": {
+      "explanations": "minimal_during_work",
+      "summaries": "comprehensive_after_completion",
+      "focus": "practical_results"
+    },
+    "preferences": {
+      "show_progress": true,
+      "use_emojis": true,
+      "technical_level": "expert",
+      "detail_level": "as_needed"
+    }
+  },
+  "development": {
+    "stack": {
+      "backend": {
+        "language": "PHP 8.4+",
+        "framework": "Laravel 11+",
+        "packages": ["livewire/livewire", "spatie/laravel-permission"]
+      },
+      "database": {
+        "development": "SQLite",
+        "production": "MySQL/PostgreSQL",
+        "cache": "Redis"
+      },
+      "frontend": {
+        "framework": "Livewire 3",
+        "css": ["Bootstrap 5", "Tailwind CSS"],
+        "js": "Alpine.js"
+      }
+    },
+    "avoid": [
+      "npm",
+      "node.js",
+      "docker",
+      "complex_setups"
+    ],
+    "principles": [
+      "simplicity",
+      "performance",
+      "security",
+      "scalability"
+    ]
+  },
+  "project_requirements": {
+    "type": "smart_autoparts_marketplace",
+    "features": {
+      "multi_language": ["ar", "en", "ur", "fr", "fa"],
+      "voice_interfaces": true,
+      "visual_symbols": true,
+      "accessibility": "maximum"
+    },
+    "target_users": {
+      "primary": "auto_parts_buyers",
+      "secondary": ["shops", "technicians", "drivers"],
+      "special_needs": "illiterate_users"
+    }
+  },
+  "work_style": {
+    "planning": "detailed_before_execution",
+    "execution": "fast_and_accurate",
+    "documentation": "comprehensive",
+    "testing": "continuous",
+    "security": "maximum_priority"
+  },
+  "file_preferences": {
+    "naming": "snake_case",
+    "structure": "organized_folders",
+    "comments": "arabic_and_english",
+    "documentation": "markdown"
+  },
+  "quality_standards": {
+    "code": {
+      "style": "PSR-12",
+      "complexity": "keep_simple",
+      "performance": "optimized",
+      "security": "hardened"
+    },
+    "git": {
+      "commits": "descriptive_arabic",
+      "branches": "feature_based",
+      "tags": "semantic_versioning"
+    }
+  },
+  "ai_behavior": {
+    "mode": "legend_mode",
+    "speed": "maximum",
+    "accuracy": "absolute",
+    "transparency": "full",
+    "initiative": "proactive"
+  },
+  "special_instructions": [
+    "Always use PHP/Composer, never npm/nodejs",
+    "Focus on local development without cloud dependencies",
+    "Prioritize Arabic language support",
+    "Consider illiterate users in every design decision",
+    "Maintain owner information in all files"
+  ],
+  "last_updated": "2024-08-12",
+  "updated_by": "AI Assistant - Legend Mode"
+}
