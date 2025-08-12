@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مركز المعرفة - مشروع Zero</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .section {
+            background: white;
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .section h2 {
+            color: #667eea;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+        .links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .link-card {
+            padding: 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s;
+        }
+        .link-card:hover {
+            background: #f8f9fa;
+            border-color: #667eea;
+            transform: translateX(-5px);
+        }
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>⚔️ مركز المعرفة - مشروع Zero ⚔️</h1>
+        <p>قاعدة معرفية شاملة تم إنشاؤها بواسطة نمط الأسطورة</p>
+    </div>
+    
+    <div class="container">
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">25,486</div>
+                <div>سطر كود محلل</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">194</div>
+                <div>تقنية تحسين</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">48</div>
+                <div>تطبيق أمان</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">60</div>
+                <div>حل مبتكر</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📚 الأدلة الشاملة</h2>
+            <div class="links">
+                <a href="guides/quick_start/ar/index.html" class="link-card">
+                    <h3>🚀 البداية السريعة</h3>
+                    <p>دليل سريع للبدء مع المشروع</p>
+                </a>
+                <a href="guides/installation/index.html" class="link-card">
+                    <h3>💿 دليل التثبيت</h3>
+                    <p>خطوات تفصيلية للتثبيت والإعداد</p>
+                </a>
+                <a href="guides/security/index.html" class="link-card">
+                    <h3>🔐 دليل الأمان</h3>
+                    <p>48 تطبيق أمان موثق</p>
+                </a>
+                <a href="guides/performance/index.html" class="link-card">
+                    <h3>⚡ دليل الأداء</h3>
+                    <p>تحسين 75x مع 194 تقنية</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔍 المراجع التقنية</h2>
+            <div class="links">
+                <a href="reference/api/index.html" class="link-card">
+                    <h3>🌐 توثيق API</h3>
+                    <p>جميع واجهات البرمجة الموثقة</p>
+                </a>
+                <a href="reference/database/index.html" class="link-card">
+                    <h3>💾 مخطط قاعدة البيانات</h3>
+                    <p>30 جدول مع العلاقات</p>
+                </a>
+                <a href="reference/services/index.html" class="link-card">
+                    <h3>⚙️ كتالوج الخدمات</h3>
+                    <p>12 خدمة متقدمة موثقة</p>
+                </a>
+                <a href="reference/components/index.html" class="link-card">
+                    <h3>🎨 مكتبة المكونات</h3>
+                    <p>28 مكون Blade جاهز</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💡 أمثلة وتطبيقات</h2>
+            <div class="links">
+                <a href="examples/code_snippets/index.html" class="link-card">
+                    <h3>📝 قصاصات الكود</h3>
+                    <p>أمثلة كود جاهزة للاستخدام</p>
+                </a>
+                <a href="examples/full_examples/index.html" class="link-card">
+                    <h3>📦 أمثلة كاملة</h3>
+                    <p>تطبيقات كاملة للتعلم</p>
+                </a>
+                <a href="examples/best_practices/index.html" class="link-card">
+                    <h3>✨ أفضل الممارسات</h3>
+                    <p>معايير وممارسات موصى بها</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 الخدمات المتقدمة</h2>
+            <div class="links">
+                <a href="reference/services/government.html" class="link-card">
+                    <h3>🏛️ التكامل الحكومي</h3>
+                    <p>خدمة التكامل مع الأنظمة الحكومية</p>
+                </a>
+                <a href="reference/services/payment.html" class="link-card">
+                    <h3>💳 المدفوعات والشحن</h3>
+                    <p>معالجة آمنة للمدفوعات</p>
+                </a>
+                <a href="reference/services/recommendation.html" class="link-card">
+                    <h3>🤖 نظام التوصيات</h3>
+                    <p>خوارزميات ذكية للتوصيات</p>
+                </a>
+                <a href="reference/services/analytics.html" class="link-card">
+                    <h3>📊 التحليلات</h3>
+                    <p>تحليل البيانات والإحصائيات</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>تم إنشاؤه بواسطة نمط الأسطورة ⚔️ | مشروع Zero | 2025</p>
+        <p>المعرفة المستخلصة من 4,050 ملف | 319MB من البيانات</p>
+    </div>
+</body>
+</html>

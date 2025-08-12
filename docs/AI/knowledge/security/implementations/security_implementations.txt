@@ -1,0 +1,12 @@
+./M-N/main/v0.1/alpha_version/config/database.php:            // 'encrypt' => env('DB_ENCRYPT', 'yes'),
+./M-N/main/v0.1/alpha_version/config/session.php:    | should be encrypted before it's stored. All encryption is performed
+./M-N/main/v0.1/alpha_version/config/session.php:    'encrypt' => env('SESSION_ENCRYPT', false),
+./M-N/main/v0.1/alpha_version/config/app.php:    | This key is utilized by Laravel's encryption services and should be set
+./M-N/main/v0.1/alpha_version/config/app.php:    | to a random, 32 character string to ensure that all encrypted values
+./M-N/main/v0.1/alpha_version/app/Models/User.php:        'password' => 'hashed',
+./alpha_version/config/database.php:            // 'encrypt' => env('DB_ENCRYPT', 'yes'),
+./alpha_version/config/session.php:    | should be encrypted before it's stored. All encryption is performed
+./alpha_version/config/session.php:    'encrypt' => env('SESSION_ENCRYPT', false),
+./alpha_version/config/app.php:    | This key is utilized by Laravel's encryption services and should be set
+./alpha_version/config/app.php:    | to a random, 32 character string to ensure that all encrypted values
+./alpha_version/app/Models/User.php:        'password' => 'hashed',

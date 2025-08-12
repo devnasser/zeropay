@@ -1,0 +1,50 @@
+./M-N/main/v0.1/alpha_version/config/database.php:    | Redis Databases
+./M-N/main/v0.1/alpha_version/config/database.php:    | Redis is an open source, fast, and advanced key-value store that also
+./M-N/main/v0.1/alpha_version/config/database.php:    | such as Memcached. You may define your connection settings here.
+./M-N/main/v0.1/alpha_version/config/database.php:        'cache' => [
+./M-N/main/v0.1/alpha_version/config/permission.php:    'cache' => [
+./M-N/main/v0.1/alpha_version/config/permission.php:        'key' => 'spatie.permission.cache',
+./M-N/main/v0.1/alpha_version/config/cache.php:    | This option controls the default cache store that will be used by the
+./M-N/main/v0.1/alpha_version/config/cache.php:    | specified when running a cache operation inside the application.
+./M-N/main/v0.1/alpha_version/config/cache.php:    | Here you may define all of the cache "stores" for your application as
+./M-N/main/v0.1/alpha_version/config/cache.php:    | same cache driver to group types of items stored in your caches.
+./M-N/main/v0.1/alpha_version/config/cache.php:    | Supported drivers: "array", "database", "file", "memcached",
+./M-N/main/v0.1/alpha_version/config/cache.php:            'table' => env('DB_CACHE_TABLE', 'cache'),
+./M-N/main/v0.1/alpha_version/config/cache.php:            'path' => storage_path('framework/cache/data'),
+./M-N/main/v0.1/alpha_version/config/cache.php:            'lock_path' => storage_path('framework/cache/data'),
+./M-N/main/v0.1/alpha_version/config/cache.php:        'memcached' => [
+./M-N/main/v0.1/alpha_version/config/cache.php:            'driver' => 'memcached',
+./M-N/main/v0.1/alpha_version/config/cache.php:                // Memcached::OPT_CONNECT_TIMEOUT => 2000,
+./M-N/main/v0.1/alpha_version/config/cache.php:            'connection' => env('REDIS_CACHE_CONNECTION', 'cache'),
+./M-N/main/v0.1/alpha_version/config/cache.php:            'table' => env('DYNAMODB_CACHE_TABLE', 'cache'),
+./M-N/main/v0.1/alpha_version/config/cache.php:    | When utilizing the APC, database, memcached, Redis, and DynamoDB cache
+./M-N/main/v0.1/alpha_version/config/cache.php:    | stores, there might be other applications using the same cache. For
+./M-N/main/v0.1/alpha_version/config/cache.php:    | that reason, you may prefix every cache key to avoid collisions.
+./M-N/main/v0.1/alpha_version/config/cache.php:    'prefix' => env('CACHE_PREFIX', Str::slug((string) env('APP_NAME', 'laravel')).'-cache-'),
+./M-N/main/v0.1/alpha_version/config/session.php:    | Supported: "file", "cookie", "database", "memcached",
+./M-N/main/v0.1/alpha_version/config/session.php:    | When using one of the framework's cache driven session backends, you may
+./M-N/main/v0.1/alpha_version/config/session.php:    | define the cache store which should be used to store the session data
+./M-N/main/v0.1/alpha_version/config/session.php:    | between requests. This must match one of your defined cache stores.
+./M-N/main/v0.1/alpha_version/config/session.php:    | Affects: "dynamodb", "memcached", "redis"
+./M-N/main/v0.1/alpha_version/config/app.php:    | manage Laravel's "maintenance mode" status. The "cache" driver will
+./M-N/main/v0.1/alpha_version/config/app.php:    | Supported drivers: "file", "cache"
+./M-N/main/v0.1/alpha_version/database/migrations/2024_01_01_000011_create_permission_tables.php:        app('cache')
+./M-N/main/v0.1/alpha_version/database/migrations/2024_01_01_000011_create_permission_tables.php:            ->store(config('permission.cache.store') != 'default' ? config('permission.cache.store') : null)
+./M-N/main/v0.1/alpha_version/database/migrations/2024_01_01_000011_create_permission_tables.php:            ->forget(config('permission.cache.key'));
+./M-N/main/v0.1/alpha_version/database/migrations/0001_01_01_000001_create_cache_table.php:        Schema::create('cache', function (Blueprint $table) {
+./M-N/main/v0.1/alpha_version/database/migrations/0001_01_01_000001_create_cache_table.php:        Schema::create('cache_locks', function (Blueprint $table) {
+./M-N/main/v0.1/alpha_version/database/migrations/0001_01_01_000001_create_cache_table.php:        Schema::dropIfExists('cache');
+./M-N/main/v0.1/alpha_version/database/migrations/0001_01_01_000001_create_cache_table.php:        Schema::dropIfExists('cache_locks');
+./M-N/main/v0.1/alpha_version/app/Helpers/ImageHelper.php:        $cacheKey = "image_url_{$type}_{$image}";
+./M-N/main/v0.1/alpha_version/app/Helpers/ImageHelper.php:        return Cache::remember($cacheKey, 3600, function () use ($image, $type) {
+./M-N/main/v0.1/alpha_version/app/Services/RecommendationService.php:        return Cache::remember("user_recommendations_{$userId}", 3600, function () use ($userId, $limit) {
+./M-N/main/v0.1/alpha_version/app/Services/RecommendationService.php:        return Cache::remember("popular_products_{$limit}", 1800, function () use ($limit) {
+./M-N/main/v0.1/alpha_version/app/Services/RecommendationService.php:        return Cache::remember("similar_products_{$productId}", 3600, function () use ($productId, $limit) {
+./M-N/main/v0.1/alpha_version/app/Services/RecommendationService.php:        return Cache::remember("complementary_products_{$productId}", 3600, function () use ($productId, $limit) {
+./M-N/main/v0.1/alpha_version/app/Services/RecommendationService.php:        return Cache::remember("featured_products_{$limit}", 1800, function () use ($limit) {
+./M-N/main/v0.1/alpha_version/app/Services/RecommendationService.php:        return Cache::remember("new_products_{$limit}", 1800, function () use ($limit) {
+./M-N/main/v0.1/alpha_version/app/Services/RecommendationService.php:        return Cache::remember("on_sale_products_{$limit}", 900, function () use ($limit) {
+./M-N/main/v0.1/alpha_version/app/Services/RecommendationService.php:        return Cache::remember("category_recommendations_{$categoryId}", 3600, function () use ($categoryId, $limit) {
+./M-N/main/v0.1/alpha_version/app/Services/RecommendationService.php:        return Cache::remember("brand_recommendations_{$brand}", 3600, function () use ($brand, $limit) {
+./M-N/main/v0.1/alpha_version/app/Services/RecommendationService.php:        return Cache::remember('market_trends', 7200, function () {
+./M-N/main/v0.1/alpha_version/app/Services/AnalyticsService.php:        return Cache::remember('dashboard_stats', 1800, function () {
