@@ -1,0 +1,37 @@
+{
+  "tags": {
+    "frameworks": ["laravel", "livewire", "bootstrap"],
+    "languages": ["php", "javascript", "sql"],
+    "databases": ["sqlite", "mysql", "postgresql"],
+    "patterns": ["mvc", "repository", "service-layer", "modular"],
+    "optimization": ["caching", "performance", "size-reduction", "speed"],
+    "security": ["authentication", "authorization", "validation", "encryption"],
+    "tools": ["composer", "artisan", "npm", "git"],
+    "versions": {
+      "php": ["8.2", "8.4"],
+      "laravel": ["11", "12"],
+      "livewire": ["3"]
+    },
+    "features": [
+      "multi-tenant",
+      "role-based-access",
+      "activity-logging",
+      "image-processing",
+      "pdf-generation",
+      "real-time-updates"
+    ],
+    "best-practices": [
+      "clean-code",
+      "dry-principle",
+      "solid-principles",
+      "testing",
+      "documentation"
+    ]
+  },
+  "tag_mapping": {
+    "laravel": ["frameworks/laravel_*.md", "best_practices/code_examples/*.php"],
+    "optimization": ["optimizations/*.md", "best_practices/configuration/*"],
+    "security": ["patterns/authentication_flow.md", "best_practices/security/*"],
+    "sqlite": ["frameworks/sqlite_optimization.md", "best_practices/code_examples/sqlite_*.php"]
+  }
+}
