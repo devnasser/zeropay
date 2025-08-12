@@ -108,3 +108,9 @@ ehthumbs.db
 /docs/AI/_build/
 *.pdf
 !docs/**/*.pdf
+
+# Learning workspace (temporary)
+/learn/res/*
+!/learn/res/.gitkeep
+/learn/sandbox/*
+!/learn/sandbox/.gitkeep
