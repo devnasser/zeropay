@@ -84,5 +84,3 @@ phpunit.xml export-ignore
 /system/logs export-ignore
 /system/backups export-ignore
 /me/logs export-ignore
-/plans/archived export-ignore
-/plans/drafts export-ignore
