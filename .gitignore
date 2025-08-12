@@ -132,3 +132,30 @@ ehthumbs.db
 !/me/logs/.gitkeep
 /me/performance/*.log
 /me/memories/cache/*
+/me/templates/temp/*
+!/me/templates/temp/.gitkeep
+
+# Specific project directories in zeropay
+/zeropay/*/vendor/
+/zeropay/*/node_modules/
+/zeropay/*/.env
+/zeropay/*/storage/
+/zeropay/*/public/storage
+/zeropay/*/bootstrap/cache/*
+!/zeropay/*/bootstrap/cache/.gitkeep
+
+# System temporary files
+/system/benchmarks/results/*
+!/system/benchmarks/results/.gitkeep
+/system/tools/temp/*
+!/system/tools/temp/.gitkeep
+
+# Plans temporary drafts
+/plans/drafts/*
+!/plans/drafts/.gitkeep
+
+# Global patterns
+*.log.[0-9]*
+*.pid
+*.seed
+*.pid.lock
