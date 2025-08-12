@@ -1,0 +1,69 @@
+# Dependencies
+/vendor/
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Laravel specific
+/.env
+/.env.backup
+/.env.production
+/.phpunit.result.cache
+/public/hot
+/public/storage
+/storage/*.key
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Cache and logs
+*.log
+*.cache
+/bootstrap/cache/*
+!/bootstrap/cache/.gitkeep
+/storage/app/*
+!/storage/app/public/
+!/storage/app/.gitkeep
+/storage/framework/cache/*
+!/storage/framework/cache/.gitkeep
+/storage/framework/sessions/*
+!/storage/framework/sessions/.gitkeep
+/storage/framework/views/*
+!/storage/framework/views/.gitkeep
+/storage/logs/*
+!/storage/logs/.gitkeep
+
+# Database
+*.sqlite
+*.sqlite-journal
+database/*.sqlite
+
+# Compiled assets
+/public/css/
+/public/js/
+/public/mix-manifest.json
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+~*
+
+# OS generated files
+Thumbs.db
+Desktop.ini
+
+# Test coverage
+/coverage/
+*.coverage
+.phpunit.cache/
+
+# Build files
+/build/
+/dist/
