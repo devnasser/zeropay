@@ -5,21 +5,26 @@ npm-debug.log
 yarn-error.log
 
 # Laravel specific
-/.env
-/.env.backup
-/.env.production
-/.phpunit.result.cache
+.env
+.env.backup
+.env.production
+.env.local
+.phpunit.result.cache
 /public/hot
 /public/storage
 /storage/*.key
 
-# IDE
+# IDE and Editors
 .idea/
 .vscode/
 *.swp
 *.swo
 *~
 .DS_Store
+.project
+.settings/
+.classpath
+*.sublime-*
 
 # Cache and logs
 *.log
@@ -42,11 +47,13 @@ yarn-error.log
 *.sqlite
 *.sqlite-journal
 database/*.sqlite
+*.db
 
 # Compiled assets
 /public/css/
 /public/js/
 /public/mix-manifest.json
+/public/build/
 
 # Temporary files
 *.tmp
@@ -54,16 +61,50 @@ database/*.sqlite
 *.bak
 *.backup
 ~*
+.~*
 
 # OS generated files
 Thumbs.db
 Desktop.ini
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 
 # Test coverage
 /coverage/
 *.coverage
 .phpunit.cache/
+/phpunit.xml
+/phpstan.neon
 
 # Build files
 /build/
 /dist/
+/out/
+
+# Package files
+*.tar
+*.tar.gz
+*.zip
+*.rar
+*.7z
+
+# Keep .gitkeep files
+!.gitkeep
+
+# Project specific
+/zeropay/vendor/
+/zeropay/node_modules/
+/zeropay/.env
+/zeropay/storage/
+/zeropay/public/storage
+
+# Archives content (keep the directory)
+/archives/*
+!/archives/.gitkeep
+
+# Documentation build files
+/docs/human/_build/
+/docs/AI/_build/
+*.pdf
+!docs/**/*.pdf
