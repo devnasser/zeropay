@@ -114,3 +114,11 @@ ehthumbs.db
 !/learn/res/.gitkeep
 /learn/sandbox/*
 !/learn/sandbox/.gitkeep
+
+# System directory
+/system/logs/*
+!/system/logs/.gitkeep
+/system/backups/*
+!/system/backups/.gitkeep
+/system/benchmarks/*.log
+/system/benchmarks/*.txt
