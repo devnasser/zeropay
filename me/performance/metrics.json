@@ -1,8 +1,10 @@
 {
   "session": {
     "start_time": "2024-08-12T00:00:00Z",
-    "mode": "legend_mode",
-    "swarm_units": 20
+    "current_time": "2024-12-19T00:00:00Z",
+    "mode": "legend_mode_v3",
+    "swarm_units": 100,
+    "swarm_model": "hybrid"
   },
   "tasks_completed": {
     "knowledge_extraction": {
