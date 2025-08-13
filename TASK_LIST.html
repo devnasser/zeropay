@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قائمة المهام الشاملة - Comprehensive Task List</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .header .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 3em;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 10px 0;
+        }
+        
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+        
+        .task-section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #3498db;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .task-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 0 1px #e0e0e0;
+        }
+        
+        .task-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: right;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .task-table td {
+            padding: 15px;
+            border-bottom: 1px solid #f0f0f0;
+            vertical-align: top;
+        }
+        
+        .task-table tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .task-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            text-align: center;
+            min-width: 100px;
+        }
+        
+        .status-complete {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-in-progress {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-pending {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+        
+        .status-review {
+            background: #e2e3e5;
+            color: #383d41;
+        }
+        
+        .priority-high {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        
+        .priority-medium {
+            color: #ffc107;
+            font-weight: bold;
+        }
+        
+        .priority-low {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .team-tag {
+            display: inline-block;
+            background: #e9ecef;
+            padding: 4px 10px;
+            border-radius: 12px;
+            margin: 2px;
+            font-size: 0.85em;
+        }
+        
+        .checklist {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .checklist li {
+            padding: 5px 0;
+            padding-right: 25px;
+            position: relative;
+        }
+        
+        .checklist li:before {
+            content: "□";
+            position: absolute;
+            right: 0;
+            color: #3498db;
+            font-size: 1.2em;
+        }
+        
+        .checklist li.done:before {
+            content: "✓";
+            color: #27ae60;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 25px;
+            background: #ecf0f1;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: width 0.5s ease;
+        }
+        
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 0;
+            left: 0;
+            height: 4px;
+            background: #e0e0e0;
+            z-index: 1;
+        }
+        
+        .timeline-item {
+            position: relative;
+            text-align: center;
+            flex: 1;
+            z-index: 2;
+        }
+        
+        .timeline-point {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border: 4px solid #3498db;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .timeline-item.completed .timeline-point {
+            background: #27ae60;
+            border-color: #27ae60;
+            color: white;
+        }
+        
+        .timeline-item.active .timeline-point {
+            background: #f39c12;
+            border-color: #f39c12;
+            color: white;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn-secondary {
+            background: #95a5a6;
+            color: white;
+        }
+        
+        .btn-success {
+            background: #27ae60;
+            color: white;
+        }
+        
+        .legend {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .legend-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .legend-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>
+                <span>📋</span>
+                قائمة المهام الشاملة
+                <span>📋</span>
+            </h1>
+            <p class="subtitle">نظرة شاملة على جميع المهام والمراحل والفرق</p>
+        </div>
+
+        <!-- Statistics -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">إجمالي المهام</div>
+                <div class="stat-number">45</div>
+                <div class="stat-label">مهمة</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">المكتمل</div>
+                <div class="stat-number">12</div>
+                <div class="stat-label">27%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">قيد التنفيذ</div>
+                <div class="stat-number">5</div>
+                <div class="stat-label">11%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">في الانتظار</div>
+                <div class="stat-number">28</div>
+                <div class="stat-label">62%</div>
+            </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="task-section">
+            <h2 class="section-title">⏱️ الجدول الزمني للمشروع</h2>
+            <div class="timeline">
+                <div class="timeline-item completed">
+                    <div class="timeline-point">✓</div>
+                    <div>التحليل</div>
+                    <small>مكتمل</small>
+                </div>
+                <div class="timeline-item completed">
+                    <div class="timeline-point">✓</div>
+                    <div>التخطيط</div>
+                    <small>مكتمل</small>
+                </div>
+                <div class="timeline-item active">
+                    <div class="timeline-point">3</div>
+                    <div>التنفيذ</div>
+                    <small>جاري</small>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-point">4</div>
+                    <div>الأتمتة</div>
+                    <small>قريباً</small>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-point">5</div>
+                    <div>الاختبار</div>
+                    <small>مخطط</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phase 1: Analysis -->
+        <div class="task-section">
+            <h2 class="section-title">📊 المرحلة 1: التحليل الأولي</h2>
+            <table class="task-table">
+                <thead>
+                    <tr>
+                        <th width="5%">#</th>
+                        <th width="25%">المهمة</th>
+                        <th width="30%">التفاصيل</th>
+                        <th width="15%">المسؤول</th>
+                        <th width="10%">الأولوية</th>
+                        <th width="15%">الحالة</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1.1</td>
+                        <td><strong>تحليل البنية الحالية</strong></td>
+                        <td>
+                            <ul class="checklist">
+                                <li class="done">فحص 341MB من البيانات</li>
+                                <li class="done">تحديد 6 مشاريع Laravel</li>
+                                <li class="done">رصد الملفات المكررة</li>
+                                <li class="done">تحليل التبعيات</li>
+                            </ul>
+                        </td>
+                        <td><span class="team-tag">فريق التحليل</span></td>
+                        <td><span class="priority-high">عالية</span></td>
+                        <td><span class="status-badge status-complete">✅ مكتمل</span></td>
+                    </tr>
+                    <tr>
+                        <td>1.2</td>
+                        <td><strong>تحديد المشاكل</strong></td>
+                        <td>
+                            <ul class="checklist">
+                                <li class="done">قطع أطراف غير متصلة (189 ملف)</li>
+                                <li class="done">تكرار في التبعيات (4 vendor)</li>
+                                <li class="done">عدم وجود أتمتة</li>
+                                <li class="done">بطء في الأداء</li>
+                            </ul>
+                        </td>
+                        <td><span class="team-tag">فريق الجودة</span></td>
+                        <td><span class="priority-high">عالية</span></td>
+                        <td><span class="status-badge status-complete">✅ مكتمل</span></td>
+                    </tr>
+                    <tr>
+                        <td>1.3</td>
+                        <td><strong>توثيق النتائج</strong></td>
+                        <td>
+                            <ul class="checklist">
+                                <li class="done">تقرير التحليل الشامل</li>
+                                <li class="done">رسوم بيانية للهيكل</li>
+                                <li class="done">قائمة التوصيات</li>
+                            </ul>
+                        </td>
+                        <td><span class="team-tag">فريق التوثيق</span></td>
+                        <td><span class="priority-medium">متوسطة</span></td>
+                        <td><span class="status-badge status-complete">✅ مكتمل</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Phase 2: Planning -->
+        <div class="task-section">
+            <h2 class="section-title">📝 المرحلة 2: التخطيط</h2>
+            <table class="task-table">
+                <thead>
+                    <tr>
+                        <th width="5%">#</th>
+                        <th width="25%">المهمة</th>
+                        <th width="30%">التفاصيل</th>
+                        <th width="15%">المسؤول</th>
+                        <th width="10%">الأولوية</th>
+                        <th width="15%">الحالة</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2.1</td>
+                        <td><strong>تصميم الهيكلة الجديدة</strong></td>
+                        <td>
+                            <ul class="checklist">
+                                <li class="done">خطة مجلدات واضحة</li>
+                                <li class="done">نظام تسمية موحد</li>
+                                <li class="done">فصل المشاريع والموارد</li>
+                                <li>مراجعة مع الفريق</li>
+                            </ul>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 75%">75%</div>
+                            </div>
+                        </td>
+                        <td><span class="team-tag">فريق المعمارية</span></td>
+                        <td><span class="priority-high">عالية</span></td>
+                        <td><span class="status-badge status-review">⏳ مراجعة</span></td>
+                    </tr>
+                    <tr>
+                        <td>2.2</td>
+                        <td><strong>خطة الأتمتة</strong></td>
+                        <td>
+                            <ul class="checklist">
+                                <li class="done">سكريبتات التنظيف اليومي</li>
+                                <li class="done">أدوات المراقبة المستمرة</li>
+                                <li class="done">نظام CI/CD كامل</li>
+                                <li>جدولة المهام</li>
+                            </ul>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 80%">80%</div>
+                            </div>
+                        </td>
+                        <td><span class="team-tag">فريق DevOps</span></td>
+                        <td><span class="priority-high">عالية</span></td>
+                        <td><span class="status-badge status-review">⏳ مراجعة</span></td>
+                    </tr>
+                    <tr>
+                        <td>2.3</td>
+                        <td><strong>اختيار الأدوات</strong></td>
+                        <td>
+                            <ul class="checklist">
+                                <li class="done">ripgrep للبحث السريع</li>
+                                <li class="done">SQLite للفهرسة</li>
+                                <li class="done">APCu للكاش</li>
+                                <li class="done">أدوات مجانية فقط</li>
+                            </ul>
+                        </td>
+                        <td><span class="team-tag">فريق الأدوات</span></td>
+                        <td><span class="priority-medium">متوسطة</span></td>
+                        <td><span class="status-badge status-complete">✅ مكتمل</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Phase 3: Implementation -->
+        <div class="task-section">
+            <h2 class="section-title">🔨 المرحلة 3: التنفيذ</h2>
+            <table class="task-table">
+                <thead>
+                    <tr>
+                        <th width="5%">#</th>
+                        <th width="25%">المهمة</th>
+                        <th width="30%">التفاصيل</th>
+                        <th width="15%">المسؤول</th>
+                        <th width="10%">الأولوية</th>
+                        <th width="15%">الحالة</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>3.1</td>
+                        <td><strong>إعادة تنظيم الملفات</strong></td>
+                        <td>
+                            <ul class="checklist">
+                                <li>نقل الملفات (15 دقيقة)</li>
+                                <li>دمج المكرر (10 دقائق)</li>
+                                <li>تحديث المسارات (5 دقائق)</li>
+                                <li>التحقق من الروابط</li>
+                            </ul>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%">0%</div>
+                            </div>
+                        </td>
+                        <td><span class="team-tag">فريق التنفيذ</span></td>
+                        <td><span class="priority-high">عالية</span></td>
+                        <td><span class="status-badge status-pending">⏸️ منتظر</span></td>
+                    </tr>
+                    <tr>
+                        <td>3.2</td>
+                        <td><strong>تثبيت الأدوات</strong></td>
+                        <td>
+                            <ul class="checklist">
+                                <li>تثبيت ripgrep وfzf</li>
+                                <li>إعداد SQLite للفهرسة</li>
+                                <li>تكوين APCu</li>
+                                <li>إعداد سكريبتات النظام</li>
+                            </ul>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%">0%</div>
+                            </div>
+                        </td>
+                        <td><span class="team-tag">فريق النظم</span></td>
+                        <td><span class="priority-high">عالية</span></td>
+                        <td><span class="status-badge status-pending">⏸️ منتظر</span></td>
+                    </tr>
+                    <tr>
+                        <td>3.3</td>
+                        <td><strong>تحسين الأداء</strong></td>
+                        <td>
+                            <ul class="checklist">
+                                <li>تفعيل OPcache</li>
+                                <li>تحسين إعدادات PHP</li>
+                                <li>ضغط الأصول</li>
+                                <li>تحسين قاعدة البيانات</li>
+                            </ul>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%">0%</div>
+                            </div>
+                        </td>
+                        <td><span class="team-tag">فريق الأداء</span></td>
+                        <td><span class="priority-medium">متوسطة</span></td>
+                        <td><span class="status-badge status-pending">⏸️ منتظر</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Phase 4: Automation -->
+        <div class="task-section">
+            <h2 class="section-title">🤖 المرحلة 4: الأتمتة</h2>
+            <table class="task-table">
+                <thead>
+                    <tr>
+                        <th width="5%">#</th>
+                        <th width="25%">المهمة</th>
+                        <th width="30%">التفاصيل</th>
+                        <th width="15%">المسؤول</th>
+                        <th width="10%">الأولوية</th>
+                        <th width="15%">الحالة</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>4.1</td>
+                        <td><strong>نظام Git التلقائي</strong></td>
+                        <td>
+                            <ul class="checklist">
+                                <li>Git hooks للتحقق</li>
+                                <li>دفع يومي تلقائي</li>
+                                <li>تنظيف أسبوعي</li>
+                                <li>نسخ احتياطي شهري</li>
+                            </ul>
+                        </td>
+                        <td><span class="team-tag">فريق Git</span></td>
+                        <td><span class="priority-high">عالية</span></td>
+                        <td><span class="status-badge status-pending">⏸️ منتظر</span></td>
+                    </tr>
+                    <tr>
+                        <td>4.2</td>
+                        <td><strong>نظام المراقبة</strong></td>
+                        <td>
+                            <ul class="checklist">
+                                <li>لوحة مراقبة HTML</li>
+                                <li>تحديث كل دقيقة</li>
+                                <li>تنبيهات تلقائية</li>
+                                <li>تقارير يومية</li>
+                            </ul>
+                        </td>
+                        <td><span class="team-tag">فريق المراقبة</span></td>
+                        <td><span class="priority-medium">متوسطة</span></td>
+                        <td><span class="status-badge status-pending">⏸️ منتظر</span></td>
+                    </tr>
+                    <tr>
+                        <td>4.3</td>
+                        <td><strong>CI/CD Pipeline</strong></td>
+                        <td>
+                            <ul class="checklist">
+                                <li>GitHub Actions</li>
+                                <li>اختبارات تلقائية</li>
+                                <li>بناء وتوزيع</li>
+                                <li>مراقبة الجودة</li>
+                            </ul>
+                        </td>
+                        <td><span class="team-tag">فريق DevOps</span></td>
+                        <td><span class="priority-high">عالية</span></td>
+                        <td><span class="status-badge status-pending">⏸️ منتظر</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Phase 5: Testing -->
+        <div class="task-section">
+            <h2 class="section-title">🧪 المرحلة 5: الاختبار والتحقق</h2>
+            <table class="task-table">
+                <thead>
+                    <tr>
+                        <th width="5%">#</th>
+                        <th width="25%">المهمة</th>
+                        <th width="30%">التفاصيل</th>
+                        <th width="15%">المسؤول</th>
+                        <th width="10%">الأولوية</th>
+                        <th width="15%">الحالة</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>5.1</td>
+                        <td><strong>اختبار الأداء</strong></td>
+                        <td>
+                            <ul class="checklist">
+                                <li>سرعة البحث (<100ms)</li>
+                                <li>أداء التطبيقات</li>
+                                <li>استخدام الموارد</li>
+                                <li>اختبار الحمل</li>
+                            </ul>
+                        </td>
+                        <td><span class="team-tag">فريق الاختبار</span></td>
+                        <td><span class="priority-high">عالية</span></td>
+                        <td><span class="status-badge status-pending">⏸️ منتظر</span></td>
+                    </tr>
+                    <tr>
+                        <td>5.2</td>
+                        <td><strong>اختبار الأتمتة</strong></td>
+                        <td>
+                            <ul class="checklist">
+                                <li>تشغيل يومي للسكريبتات</li>
+                                <li>معالجة الأخطاء</li>
+                                <li>النسخ الاحتياطي التلقائي</li>
+                                <li>استعادة البيانات</li>
+                            </ul>
+                        </td>
+                        <td><span class="team-tag">فريق QA</span></td>
+                        <td><span class="priority-medium">متوسطة</span></td>
+                        <td><span class="status-badge status-pending">⏸️ منتظر</span></td>
+                    </tr>
+                    <tr>
+                        <td>5.3</td>
+                        <td><strong>القبول النهائي</strong></td>
+                        <td>
+                            <ul class="checklist">
+                                <li>مراجعة جميع المعايير</li>
+                                <li>توقيع الفرق</li>
+                                <li>توثيق النتائج</li>
+                                <li>خطة الصيانة</li>
+                            </ul>
+                        </td>
+                        <td><span class="team-tag">جميع الفرق</span></td>
+                        <td><span class="priority-high">عالية</span></td>
+                        <td><span class="status-badge status-pending">⏸️ منتظر</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Special Tasks -->
+        <div class="task-section">
+            <h2 class="section-title">⭐ مهام خاصة ومستمرة</h2>
+            <table class="task-table">
+                <thead>
+                    <tr>
+                        <th width="5%">#</th>
+                        <th width="25%">المهمة</th>
+                        <th width="30%">التفاصيل</th>
+                        <th width="15%">المسؤول</th>
+                        <th width="10%">التكرار</th>
+                        <th width="15%">الحالة</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>S1</td>
+                        <td><strong>إدارة السرب الآلي</strong></td>
+                        <td>
+                            <ul class="checklist">
+                                <li class="done">نظام التحجيم الديناميكي</li>
+                                <li class="done">توزيع التخصصات</li>
+                                <li>مراقبة الأداء</li>
+                                <li>تحسين مستمر</li>
+                            </ul>
+                        </td>
+                        <td><span class="team-tag">مدير السرب</span></td>
+                        <td><span class="priority-medium">مستمر</span></td>
+                        <td><span class="status-badge status-in-progress">🔄 جاري</span></td>
+                    </tr>
+                    <tr>
+                        <td>S2</td>
+                        <td><strong>التحديث المستمر للوثائق</strong></td>
+                        <td>
+                            <ul class="checklist">
+                                <li>تحديث docs/AI يومياً</li>
+                                <li>تحديث docs/human أسبوعياً</li>
+                                <li>مراجعة الخطط شهرياً</li>
+                            </ul>
+                        </td>
+                        <td><span class="team-tag">فريق التوثيق</span></td>
+                        <td><span class="priority-medium">يومي</span></td>
+                        <td><span class="status-badge status-in-progress">🔄 جاري</span></td>
+                    </tr>
+                    <tr>
+                        <td>S3</td>
+                        <td><strong>التعلم والتطوير</strong></td>
+                        <td>
+                            <ul class="checklist">
+                                <li>تحليل الأنماط الجديدة</li>
+                                <li>تحسين الخوارزميات</li>
+                                <li>اختبار تقنيات جديدة</li>
+                            </ul>
+                        </td>
+                        <td><span class="team-tag">فريق R&D</span></td>
+                        <td><span class="priority-low">مستمر</span></td>
+                        <td><span class="status-badge status-in-progress">🔄 جاري</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Legend and Actions -->
+        <div class="task-section">
+            <div class="legend">
+                <p class="legend-title">دليل الرموز:</p>
+                <div class="legend-items">
+                    <div class="legend-item">
+                        <span class="status-badge status-complete">✅ مكتمل</span>
+                        <span>= تم الانتهاء</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="status-badge status-in-progress">🔄 جاري</span>
+                        <span>= قيد التنفيذ</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="status-badge status-review">⏳ مراجعة</span>
+                        <span>= في المراجعة</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="status-badge status-pending">⏸️ منتظر</span>
+                        <span>= في الانتظار</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="btn btn-primary" onclick="alert('يتطلب موافقتك للبدء في التنفيذ')">
+                    🚀 بدء التنفيذ
+                </button>
+                <button class="btn btn-secondary" onclick="window.print()">
+                    🖨️ طباعة القائمة
+                </button>
+                <button class="btn btn-success" onclick="location.reload()">
+                    🔄 تحديث البيانات
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Auto-refresh every 30 seconds
+        setTimeout(function() {
+            location.reload();
+        }, 30000);
+        
+        // Update timestamp
+        document.addEventListener('DOMContentLoaded', function() {
+            const now = new Date();
+            console.log('آخر تحديث:', now.toLocaleString('ar-SA'));
+        });
+    </script>
+</body>
+</html>
