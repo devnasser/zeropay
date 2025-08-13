@@ -1,0 +1,13 @@
+packages:
+  # مشاريع Laravel
+  - 'zeropay/projects/smart-autoparts/*'
+  - 'zeropay/projects/*/development'
+  - 'zeropay/projects/*/v*-development'
+  
+  # مشاريع التعلم والأمثلة
+  - 'learn/sandbox/*'
+  - 'learn/examples/*'
+  
+  # أدوات النظام والمساعدة
+  - 'system/tools/*'
+  - 'system/scripts/*'
