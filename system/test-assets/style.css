@@ -1,0 +1,26 @@
+
+/* Main Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+.header {
+    background-color: #333333;
+    color: #ffffff;
+    padding: 10px 0px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+}
