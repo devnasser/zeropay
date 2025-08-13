@@ -1,0 +1,7 @@
+{
+    "config": {
+        "process-timeout": 0,
+        "optimize-autoloader": true,
+        "apcu-autoloader": true,
+        "cache-dir": "/mnt/ramdisk/composer/cache"}
+}
