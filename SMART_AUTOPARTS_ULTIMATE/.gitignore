@@ -1,0 +1,44 @@
+# Dependencies
+/vendor
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Laravel
+/public/hot
+/public/storage
+/storage/*.key
+/storage/logs
+/storage/framework/cache/data
+/storage/framework/sessions
+/storage/framework/testing
+/storage/framework/views
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build
+/build
+/dist
+*.log
+
+# Testing
+/coverage
+.phpunit.result.cache
+.phpunit.cache
+
+# Docker
+docker-compose.override.yml

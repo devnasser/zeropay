@@ -1,0 +1,28 @@
+{
+  "name": "@sma-enh/root",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Smart AutoParts Enhanced - Next Generation",
+  "workspaces": [
+    "core/*",
+    "microservices/*",
+    "apps/*",
+    "shared/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "deploy": "turbo run deploy"
+  },
+  "devDependencies": {
+    "turbo": "latest",
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}

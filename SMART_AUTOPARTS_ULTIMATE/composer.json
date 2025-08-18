@@ -1,0 +1,28 @@
+{
+    "name": "smartautoparts/ultimate",
+    "type": "project",
+    "description": "Smart AutoParts Ultimate - The unified platform",
+    "keywords": ["autoparts", "ecommerce", "laravel", "microservices"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nasser Alanazi",
+            "email": "dev.na@outlook.com"
+        }
+    ],
+    "require": {
+        "php": "^8.2"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

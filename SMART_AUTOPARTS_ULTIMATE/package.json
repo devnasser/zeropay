@@ -1,0 +1,27 @@
+{
+  "name": "@smartautoparts/ultimate",
+  "version": "3.0.0",
+  "private": true,
+  "description": "Smart AutoParts Ultimate - Monorepo",
+  "workspaces": [
+    "core/microservices/*",
+    "applications/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm:dev:*\"",
+    "dev:web": "cd applications/web && npm run dev",
+    "dev:api": "cd core/microservices/api-gateway && npm run dev",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "turbo": "^1.10.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "@sma-enh/mobile",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "start": "expo start",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "test": "jest"
+  },
+  "dependencies": {
+    "expo": "~49.0.0",
+    "react": "18.2.0",
+    "react-native": "0.72.0",
+    "@react-navigation/native": "^6.1.0",
+    "@tanstack/react-query": "^5.0.0",
+    "react-native-reanimated": "~3.3.0",
+    "expo-camera": "~13.4.0",
+    "expo-location": "~16.1.0",
+    "expo-notifications": "~0.20.0"
+  }
+}

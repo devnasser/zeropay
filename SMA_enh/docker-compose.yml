@@ -1,0 +1,64 @@
+version: '3.9'
+
+services:
+  # API Gateway
+  api-gateway:
+    build: ./core/api-gateway
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - redis
+      - postgres
+    
+  # Auth Service
+  auth-service:
+    build: ./core/auth-service
+    environment:
+      - JWT_SECRET=${JWT_SECRET}
+      - DATABASE_URL=postgresql://user:pass@postgres:5432/auth
+    
+  # Product Service
+  product-service:
+    build: ./microservices/product-service
+    environment:
+      - DATABASE_URL=postgresql://user:pass@postgres:5432/products
+      - REDIS_URL=redis://redis:6379
+    
+  # AI Service
+  ai-service:
+    build: ./microservices/ai-service
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - MODEL_PATH=/models
+    volumes:
+      - ./ai-models:/models
+    
+  # Databases
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=pass
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    
+  redis:
+    image: redis:7-alpine
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    
+  # Message Queue
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    ports:
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin
+
+volumes:
+  postgres_data:
+  redis_data:
