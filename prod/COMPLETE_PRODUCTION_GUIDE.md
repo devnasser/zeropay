@@ -188,10 +188,7 @@ grep -r "pattern" /workspace/prod/knowledge-base/
    ```
 
 ### أدوات النشر
-1. **Docker**
    ```bash
-   cd /workspace/prod/tools/deployment/docker
-   docker-compose up -d
    ```
 
 2. **النسخ الاحتياطي**
@@ -235,7 +232,6 @@ maxmemory-policy allkeys-lru
 ### الشهادات
 ```bash
 # توليد شهادة SSL
-openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
     -keyout /workspace/prod/security/certificates/zeropay.key \
     -out /workspace/prod/security/certificates/zeropay.crt
 ```
@@ -244,16 +240,12 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 
 ## 🚢 النشر
 
-### النشر باستخدام Docker
 ```bash
 # بناء الصور
-docker build -t zeropay:latest .
 
 # التشغيل
-docker run -d -p 80:80 -p 443:443 zeropay:latest
 ```
 
-### النشر على Kubernetes
 ```bash
 # تطبيق التكوينات
 kubectl apply -f /workspace/prod/tools/deployment/kubernetes/
@@ -297,7 +289,6 @@ ssh user@server "cd /var/www/zeropay && ./deploy.sh"
 2. **تحديث الحزم**
    ```bash
    composer update --no-dev
-   npm update
    ```
 
 3. **مراجعة الأمان**
