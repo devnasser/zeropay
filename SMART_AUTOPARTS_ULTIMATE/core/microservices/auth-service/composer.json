@@ -1,0 +1,14 @@
+{
+    "name": "sma-enh/auth-service",
+    "type": "project",
+    "require": {
+        "php": "^8.2",
+        "laravel/framework": "^11.0",
+        "laravel/sanctum": "^4.0",
+        "laravel/socialite": "^5.0",
+        "tymon/jwt-auth": "^2.0",
+        "spatie/laravel-permission": "^6.0",
+        "bacon/bacon-qr-code": "^2.0",
+        "pragmarx/google2fa-laravel": "^2.0"
+    }
+}
